@@ -3,7 +3,7 @@
 import requests
 import json
 
-api_key = "AIzaSyAq3DHdffxj72WvlECl03haBe3BM07NCXM"
+api_key = "AIzaSyAq3DHdffxj"
 
 
 
