@@ -5,7 +5,7 @@ import json
 
 def google_cnl_api(content_string):
 
-    api_key = "AIzaSyB4G8TQctVz0lB4IAT8MGiDKyeWMf-Rzi4"
+    api_key = "請放入APIKEY"
 
 
     # 定義請求的 URL 和 API 金鑰
