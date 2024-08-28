@@ -12,7 +12,7 @@ content_string = ' '.join(content_string)
 
 print("-----",content_string,"-----")
 
-tags_list = google_cnl_api(content_string)
+tags_list = google_cnl_api(content_string)ss
 
 # # 初始化翻譯客戶端
 # translate_client = translate.Client()
