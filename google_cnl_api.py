@@ -2,11 +2,10 @@ import statistics
 import requests
 import json
 
+with open("apikey.txt",'r') as file:
+    api_key = file.read().strip()
 
 def google_cnl_api(content_string):
-
-    api_key = "請放入APIKEY"
-
 
     # 定義請求的 URL 和 API 金鑰
     url = f"https://language.googleapis.com/v1/documents:analyzeEntities?key={api_key}"
@@ -33,7 +32,7 @@ def google_cnl_api(content_string):
     response_data = response.json()
 
     # 打印響應內容以檢查
-    print(json.dumps(response_data, indent=2))
+    # print(json.dumps(response_data, indent=2))
 
     # 如果需要使用響應內容，可以在這裡進行處理
     salience_values = []
@@ -52,7 +51,7 @@ def google_cnl_api(content_string):
 
     # 計算中位數
     median_salience = statistics.median(salience_values)
-    print(median_salience)
+    # print(median_salience)
 
     num_of_tags = 0
     entity_names = []
@@ -66,8 +65,8 @@ def google_cnl_api(content_string):
             entity_names.append(entity["name"])
             # print(f'Entity: {entity["name"]}')
             # print(f'Salience: {salience}')
-    print("-------------------------------")
-    print(num_of_tags)
-    print([entity_names])
-    tags_list = [entity_names]
+    # print("-------------------------------")
+    # print(num_of_tags)
+    # print([entity_names])
+    tags_list = entity_names
     return tags_list
