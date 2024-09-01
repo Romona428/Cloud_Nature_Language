@@ -7,18 +7,18 @@ from pandas_gbq import to_gbq
 from entity_to_tags import entity_to_tags
 
 
-df = pd.read_json('apod_data_1995-06-16_1997-12-31.json')  
+df = pd.read_json(r'C:\Users\T14 Gen 3\Documents\Googel_Nature_Language\apod_data_1995-06-16_1997-12-31.json')  
 df_combined = entity_to_tags(df)
 
 #認證
-key_file_path = r"C:\Users\user\Documents\Keys\bigquery-romona.json"
+key_file_path = r"C:\Users\T14 Gen 3\Downloads\bigquery-romona.json"
 credentials = service_account.Credentials.from_service_account_file(key_file_path)
 
 # 建立 BigQuery 客戶端
-client = bigquery.Client(credentials=credentials, project='my-project-tir102')
+client = bigquery.Client(credentials=credentials, project='my-project-tir102-bigquery')
 
 # 設定目標資料集和表格名稱
-table_id = 'my-project-tir102.demo.df_combined'
+table_id = 'my-project-tir102-bigquery.tir102_apod.tags'
 
 # 手動定義模式
 schema = [
@@ -30,7 +30,7 @@ schema = [
 # 設定 job 的配置
 job_config = bigquery.LoadJobConfig(
     schema=schema,  
-    write_disposition=bigquery.WriteDisposition.WRITE_TRUNCATE  # WRITE_APPEND
+    write_disposition=bigquery.WriteDisposition.WRITE_APPEND  # WRITE_APPEND/WRITE_TRUNCATE
 )
 
 # 將 DataFrame 寫入 BigQuery
