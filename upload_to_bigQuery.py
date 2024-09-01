@@ -7,7 +7,7 @@ from pandas_gbq import to_gbq
 from entity_to_tags import entity_to_tags
 
 
-df = pd.read_json(r'C:\Users\T14 Gen 3\Documents\Googel_Nature_Language\apod_data_1995-06-16_1997-12-31.json')  
+df = pd.read_json(r"C:\Users\T14 Gen 3\Documents\apod-api\data_apod_3years\apod_data_2001-01-01_2003-12-31.json")  
 df_combined = entity_to_tags(df)
 
 #認證

@@ -15,7 +15,7 @@ def entity_to_tags(df):
     dataframes = []
 
     # for i in range(0, len(df)):
-    for i in range(701,len(df)):
+    for i in range(0,len(df)):
         content_string = df.iloc[i]['explanation']
         if content_string == "":
             continue
@@ -52,12 +52,12 @@ def entity_to_tags(df):
                             
 
 
-            print("---------------",i,"------------------")
+            print("---------------",i," ",fig_date,"------------------")
             # print(len(tags_list))
             # print(len(translated_array))
 
-            print(len(tags_list))
-            print(len(translated_array))
+            # print(len(tags_list))
+            # print(len(translated_array))
             df_tags=pd.DataFrame({
                 'tags_en' : tags_list,
                 'tags_zhTW' : translated_array 
